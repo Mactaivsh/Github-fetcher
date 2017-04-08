@@ -201,9 +201,8 @@
             isEmptyRelease(){
                 return Object.keys(this.releasesJson).length <= 0
             }
-        }
-        ,
-        beforeMount()
+        },
+        mounted:function()
         {
             if (document.documentElement.clientWidth < 768) {
                 this.formInline = false
