@@ -115,19 +115,6 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         this.Loading = true
-//                        Axios({
-//                            url: this.getRepoUrl,
-//                            method: "get"
-//                        }).then(function (response) {
-//                            this.Loading = false
-//                            this.repoJson = response.data
-//                            this.dataCompleted = true
-//	                        this.$message.success("Data fetch succeeded")
-//                        }.bind(this)).catch(function (err) {
-//                            this.Loading = false
-//                            this.$message.error("Can not find the Repository")
-//                            console.log(err.message)
-//                        }.bind(this))
                         Axios.all([this.getRepo(), this.getBranches(), this.getReleases()])
                             .then(Axios.spread(function (repo, branches, releases) {
                                 this.Loading = false
